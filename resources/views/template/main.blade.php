@@ -1,6 +1,6 @@
 @include('template.header')
 
-<?php 
+<?php
   $user = Auth::guard('web')->check();
   $emp  = Auth::guard('employee')->check();
   if(Auth::guard('web')->check()){
@@ -18,7 +18,7 @@
 
   <!-- Side & navbar -->
   @include('template.navbar')
-  
+
 
   <!-- Main Content -->
   <div class="main-content">
@@ -29,10 +29,10 @@
   </div>
   <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; 2019 <div class="bullet"></div> Design By <a href="https://google.com">Haikal Fikri Luzain</a>
+      Copyright &copy; 2023 <div class="bullet"></div> Design By <a href="#">Mohamad Hasan Bisri</a>
     </div>
     <div class="footer-right">
-      v1.1
+      v1.0
     </div>
   </footer>
 

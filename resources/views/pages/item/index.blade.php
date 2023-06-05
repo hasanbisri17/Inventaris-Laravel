@@ -40,7 +40,7 @@
                   <td>{{ $field->qty }}</td>
                   <td>{{ $field->type->name }}</td>
                   <td>{{ $field->room->name }}</td>
-                  {{-- <td>{{ str_limit($field->info, $limit = 20, $end = '...') }}</td> --}}
+                  {{-- <td>{{ Str::limit($field->info, $limit = 20, $end = '...') }}</td> --}}
                   <td>{{ $field->user->name }}</td>
                   <td nowrap="">
                     <a href="{{ route('item.edit', $field) }}" class="btn btn-icon btn-primary"><i class="fas fa-pen"></i></a>

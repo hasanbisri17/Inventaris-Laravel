@@ -3,16 +3,18 @@
 @section('title','Login')
 
 @section('content')
-    <div class="w-100 bg-primary" style="height: 100vh; position: fixed;">
+    <div class="w-100 bg-green" style="height: 100vh; position: fixed;">
         <div class="row justify-content-center">
             <div class="col-10 col-sm-8 col-md-6 col-lg-6 col-xl-3">
 
                 <div class="login-brand mt-4 mb-4">
-                    <img src="{{ asset('dist/img/stisla-fill.svg') }}" alt="logo" width="100" class="shadow bg-white p-2 rounded-circle">
+                    <img src="{{ asset('dist/img/Logo_UNU.png') }}" alt="logo" width="100" class="shadow bg-white p-2 rounded-circle">
                 </div>
 
-                <div class="card card-primary shadow">
-                    <div class="card-header"><h4>Login</h4></div>
+                <div class="card card-green shadow">
+                    <div class="card-header">
+                        <h4>Login</h4>
+                    </div>
 
                   <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" class="needs-validation">
@@ -40,7 +42,7 @@
                       </div>
 
                       <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                        <button type="submit" class="btn btn-success btn-lg btn-block" tabindex="4">
                           Login
                         </button>
                       </div>
