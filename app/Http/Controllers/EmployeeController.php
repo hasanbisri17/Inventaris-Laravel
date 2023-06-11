@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jabatan;
 use App\Employee;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -27,7 +28,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('pages.employee.create');
+        return view('pages.employee.create', [
+            'jabatans' => Jabatan::all(),
+        ]);
     }
 
     /**
@@ -41,6 +44,16 @@ class EmployeeController extends Controller
         $this->validate($request,[
             'nip'=>'unique:employees'
         ]);
+
+        // $emp = new Employee();
+        // $emp->nip = $request->nip;
+        // $emp->name = $request->name;
+        // $emp->username = $request->nip;
+        // $emp->password = Hash::make($request->nip);
+        // $emp->address = $request->address;
+        // $emp->jabatan_id = $request->jabatan_id;
+        // $emp->save();
+
         $emp = new Employee($request->all());
         $emp->username = $request->nip;
         $emp->password = Hash::make($request->nip);
@@ -69,7 +82,8 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         return view('pages.employee.edit',[
-            'data' => $employee
+            'data' => $employee,
+            'jabatans' => Jabatan::all(),
         ]);
     }
 

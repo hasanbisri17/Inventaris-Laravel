@@ -35,9 +35,16 @@
                   <td class="font-weight-600">{{ $field->name }}</td>
                   <td>{{ $field->info }}</td>
                   <td>
-                    <a href="{{ route('type.edit', $field) }}" class="btn btn-icon btn-primary"><i class="fas fa-pen"></i></a>
-                    <a href="{{ route('type.destroy', $field->id) }}" class="btn btn-icon btn-danger delete-btn"><i class="far fa-trash-alt"></i></a>
-                  </td>
+                    <div class="dropdown d-inline">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Aksi
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item has-icon" href="{{ route('type.edit', $field) }}"><i class="fas fa-pen"></i> Edit</a>
+                            <a class="dropdown-item has-icon delete-btn" href="{{ route('type.destroy', $field->id) }}"><i class="far fa-trash-alt"></i> Hapus</a>
+                        </div>
+                    </div>
+                </td>
                 </tr>
 
                 @endforeach

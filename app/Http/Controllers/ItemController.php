@@ -10,6 +10,7 @@ use App\Supply;
 use App\BorrowDetail;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -20,6 +21,7 @@ class ItemController extends Controller
      */
     public function index()
     {
+
         return view('pages.item.index',[
             'data'=>Item::latest()->get()
         ]);
@@ -47,6 +49,9 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $item = new Item($request->all());
+        $item->date_of_purchase = date_format(date_create($request->date_of_purchase),"d-m-Y");
+        $item->price_per_item = $request->price_per_item;
+        $item->price = $request->price;
         $item->registration_date = Carbon::now();
         $item->officer_id = Auth::id();
         $item->save();
@@ -75,10 +80,13 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
+        $laporan = Item::findOrFail($item->id);
+        $laporan->date_of_purchase = Carbon::parse($laporan->date_of_purchase); // Mengonversi ke objek Carbon
         return view('pages.item.edit',[
             'data' => $item,
             'types' => Type::all(),
             'rooms' => Room::all(),
+            compact('laporan'),
         ]);
     }
 
@@ -91,6 +99,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+
         Item::find($item->id)->update($request->except('_method','_token'));
         return redirect()->route('item.index')->with('message','update item');
     }

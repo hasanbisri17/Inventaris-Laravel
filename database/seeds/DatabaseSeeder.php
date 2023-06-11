@@ -77,6 +77,7 @@ class DatabaseSeeder extends Seeder
 
             Employee::create([
                 'name'=>$faker->name,
+                'jabatan_id'=>mt_rand(1, 2),
                 'address'=>$faker->address,
                 'nip'=>11605501 + $i,
                 'username'=>11605501 + $i,

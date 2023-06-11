@@ -43,6 +43,10 @@ class Relations extends Migration
             $table->foreign('item_id')->references('id')->on('items');
             $table->foreign('officer_id')->references('id')->on('users');
         });
+
+        // Schema::table('employees', function (Blueprint $table) {
+        //     $table->foreign('jabatan_id')->references('id')->on('jabatans');
+        // });
     }
 
     /**

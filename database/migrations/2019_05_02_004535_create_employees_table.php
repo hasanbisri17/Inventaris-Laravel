@@ -20,6 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->text('address');
+            $table->integer('jabatan_id');
             $table->timestamps();
         });
     }

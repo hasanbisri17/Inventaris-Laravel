@@ -40,8 +40,10 @@ Route::group(['middleware'=>'user'],function(){
 		'employee'=>'EmployeeController',
 		'type'=>'TypeController',
 		'room'=>'RoomController',
+        'user'=>'UserController',
 		'item'=>'ItemController',
 		'maintenance'=>'MaintenanceController',
+        'jabatan' => 'JabatanController',
 	]);
 });
 

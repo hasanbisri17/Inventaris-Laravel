@@ -22,4 +22,9 @@ class Item extends Model
     {
         return $this->hasOne('App\User','id','officer_id');
     }
+
+    public function indonesian_currency($value)
+    {
+        return number_format($value, 2, ',', '.');
+    }
 }

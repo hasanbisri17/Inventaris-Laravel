@@ -1,12 +1,12 @@
 <form action="" method="POST" id="delete-form">
     @method('DELETE')
     @csrf
-</form> 
+</form>
 
 <form action="" method="POST" id="fix-form">
     @method('DELETE')
     @csrf
-</form> 
+</form>
 
 <form action="" id="confirm-form"></form>
 
@@ -17,7 +17,7 @@
             var href = $(this).attr('href');
             swal({
                 title: "Hapus data ?",
-                text: "Data yang di hapus tidak dapat di kembalikan!", 
+                text: "Data yang di hapus tidak dapat di kembalikan!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -34,7 +34,7 @@
             var href = $(this).attr('href');
             swal({
                 title: "Fix asset ?",
-                text: "Data yang telah terupdate tidak dapat dikembalikan!", 
+                text: "Data yang telah terupdate tidak dapat dikembalikan!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -53,7 +53,7 @@
             var content = $(this).attr('content');
             swal({
                 title: title,
-                text: content, 
+                text: content,
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,

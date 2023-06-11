@@ -11,11 +11,17 @@
 
   <title>@yield('title')</title>
 
-  <!-- General CSS Files -->
+  <!-- CSS Libraries -->
   <link rel="stylesheet" href="{{ asset('dist/modules/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/modules/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dist/modules/select2/dist/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dist/modules/jquery-selectric/selectric.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/modules/izitoast/css/iziToast.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/modules/bootstrap-daterangepicker/daterangepicker.css') }}">
+  <link rel="stylesheet" href="{{ asset('dist/modules/datatables/datatables.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dist/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dist/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }}">
+
 
 
 

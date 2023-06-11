@@ -11,4 +11,9 @@ class Employee extends Model implements AuthenticatableContracts
     use Authenticatable;
 
     protected $guarded = [];
+
+    public function jabatan()
+    {
+        return $this->hasOne('App\jabatan','id','jabatan_id');
+    }
 }

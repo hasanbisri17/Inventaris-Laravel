@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Jabatan;
+use App\Employee;
+use Log;
 use Illuminate\Http\Request;
 
 class JabatanController extends Controller
@@ -14,7 +16,9 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.jabatan.index',[
+            'data'=>Jabatan::latest()->get()
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.jabatan.create');
     }
 
     /**
@@ -35,7 +39,8 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Jabatan::create($request->all());
+        return redirect()->route('jabatan.index')->with('message','create a Jabatan');
     }
 
     /**
@@ -57,7 +62,9 @@ class JabatanController extends Controller
      */
     public function edit(Jabatan $jabatan)
     {
-        //
+        return view('pages.jabatan.edit',[
+            'data' => $jabatan
+        ]);
     }
 
     /**
@@ -69,7 +76,8 @@ class JabatanController extends Controller
      */
     public function update(Request $request, Jabatan $jabatan)
     {
-        //
+        Jabatan::find($jabatan->id)->update($request->except('_method','_token'));
+        return redirect()->route('jabatan.index')->with('message','edit a jabatan');
     }
 
     /**
@@ -80,6 +88,13 @@ class JabatanController extends Controller
      */
     public function destroy(Jabatan $jabatan)
     {
-        //
+        $cek = Employee::where('jabatan_id',$jabatan->id)->count();
+        if ($cek > 0) {
+            return redirect()->back()->withError('This jabatan is already in use');
+        }else{
+            Log::info('Melakukan penghapusan ruangan');
+            $jabatan->delete();
+            return redirect()->route('room.index')->with('message','delete a room');
+        }
     }
 }

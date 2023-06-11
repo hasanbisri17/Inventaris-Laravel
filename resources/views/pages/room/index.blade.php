@@ -1,14 +1,13 @@
 @extends('template.main')
 
-@section('title','Room')
+@section('title','Data Ruang')
 
 @section('content')
   <div class="section-body">
-    <h2 class="section-title">Rooms</h2>
-    <p class="section-lead">This page is just an example for you to create your own page.</p>
+    <h2 class="section-title">Master Ruang</h2>
     <div class="card shadow">
       <div class="card-header">
-        <h4>Data Table</h4>
+        <h4>Data Master Ruang</h4>
         <div class="card-header-action">
           <a href="{{ route('room.create') }}" class="btn btn-danger">Add More <i class="fas fa-plus"></i></a>
         </div>
@@ -19,8 +18,8 @@
             <thead>
               <tr>
                 <th><i class="fas fa-th"></i></th>
-                <th>Room</th>
-                <th>Info</th>
+                <th>Nama Ruang</th>
+                <th>Lokasi Ruang</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -35,10 +34,18 @@
                   <td class="font-weight-600">{{ $field->name }}</td>
                   <td>{{ $field->info }}</td>
                   <td>
-                    <a href="{{ route('room.edit', $field) }}" class="btn btn-icon btn-primary"><i class="fas fa-pen"></i></a>
-                    <a href="{{ route('room.destroy', $field->id) }}" class="btn btn-icon btn-danger delete-btn"><i class="far fa-trash-alt"></i></a>
-                  </td>
+                        <div class="dropdown d-inline">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item has-icon" href="{{ route('room.edit', $field) }}"><i class="fas fa-pen"></i> Edit</a>
+                                <a class="dropdown-item has-icon delete-btn" href="{{ route('room.destroy', $field->id) }}"><i class="far fa-trash-alt"></i> Hapus</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
+
 
                 @endforeach
 
